@@ -1,0 +1,2 @@
+#!/bin/bash
+tmux attach -t ctf 2>/dev/null || tmux new -s ctf

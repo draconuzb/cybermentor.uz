@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo pkill -f 'openvpn --config' && echo "VPN uzildi" || echo "VPN ishlamayotgan edi"

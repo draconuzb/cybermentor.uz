@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head><meta charset="utf-8"><meta name="viewport" content="width=820">
+<title>EFIR // Signal Arxivi</title><link rel="stylesheet" href="style.css"></head>
+<body><div class="page">
+  <div class="masthead"><span class="logo"></span>
+    <span class="brand">EFIR // Signal Arxivi</span>
+    <span class="toplinks"><a href="/yordam.html">Yordam</a> | <a href="#">Chiqish</a></span></div>
+  <div class="menubar"><a href="/">Bosh sahifa</a><a href="#">Ish: EFIR-2007</a><a href="#stage1">Bosqich 1</a><a href="#stage2">Bosqich 2</a><a href="#stage3">Bosqich 3</a><a href="/yordam.html">Yordam</a></div>
+  <div class="breadcrumb">Bosh sahifa &raquo; Ish yuritish &raquo; EFIR-2007</div>
+  <div class="layout">
+    <div class="sidebar"><b>Ish yuritish</b>
+      <a href="/">Bosh sahifa</a><a href="#">Ish: EFIR-2007</a><a href="#stage1">Bosqich 1</a>
+      <a href="#stage2">Bosqich 2</a><a href="#stage3">Bosqich 3</a><a href="/yordam.html">Yordam</a>
+    </div>
+    <div class="main">
+      <h1>EFIR — ushlab olingan taktik radio tarmog'i</h1>
+      <div class="intro">Operator qo'l qurilmasi hisoblagich blokini qayta ishlatgani sababli ko'plab uzatmalar bir xil himoya bilan yozilgan. Analitik xom base64 interceptlardan haqiqiy matnni qayta tiklashi lozim.</div>
+
+      <div class="card" id="stage1">
+        <h2>1-bosqich: bitta oynada ikki intercept</h2>
+        <p>A1 — standart tarmoq ochilish preambulasi; A2 — shu oynadagi noma'lum trafik.</p>
+        <div class="dl">Yuklab olish: <a href="/stage1/intercepts.txt">stage1/intercepts.txt</a></div>
+        <div>A1 ning hujjatlashtirilgan aniq matni (160 baytga bo'sh joy bilan to'ldirishdan oldin):</div>
+        <pre class="crib">NET CONTROL TO ALL STATIONS THIS IS A ROUTINE RADIO CHECK ALL UNITS REPORT SIGNAL STRENGTH AND STANDBY FOR TRAFFIC MAINTAIN STRICT RADIO SILENCE UNTIL FURTHER NOTICE</pre>
+      </div>
+
+      <div class="card" id="stage2">
+        <h2>2-bosqich: kunlik efir suhbati</h2>
+        <p>24 ta base64 uzatma, hisoblagich qayta tiklangan, ochiq matn berilmagan — ulardan birida kerakli xabar bor.</p>
+        <div class="dl">Yuklab olish: <a href="/stage2/intercepts.txt">stage2/intercepts.txt</a></div>
+      </div>
+
+      <div class="card" id="stage3">
+        <h2>3-bosqich: siljigan hisoblagichli kadrlar</h2>
+        <p>Bir nechta kadr bir xil kalit/nonce, lekin turli hisoblagich siljishida; nishon uzatma har qanday bitta ma'lum kadrdan uzunroq.</p>
+        <div class="dl">Yuklab olish: <a href="/stage3/intercepts.json">stage3/intercepts.json</a></div>
+        <table class="frames">
+          <caption>Hujjatlashtirilgan kadrlar</caption>
+          <tr><th>counter (blok)</th><th>uzunlik (bayt)</th><th>hujjatlashtirilgan ochiq matn (to'ldirishdan oldin)</th></tr>
+          <tr><td>6</td><td>48</td><td><code>STATION SIX RELAYING WEATHER CONDITIONS ALONG THE</code></td></tr>
+          <tr><td>8</td><td>64</td><td><code>SIX ACTUAL SENDS RESUPPLY STATUS FOR THE FORWARD ELEMENT NOW OK</code></td></tr>
+          <tr><td>12</td><td>64</td><td><code>RESUPPLY CONVOY DEPARTS AT ZERO FIVE HUNDRED HOURS ACKNOWLEDGE OK</code></td></tr>
+        </table>
+      </div>
+
+      <div class="flagnote">Bayroq formati: CTF&#123;&hellip;&#125;. Har bir jamoa uchun alohida interceptlar; hech narsa umumiy emas.</div>
+    </div>
+  </div>
+  <div class="statusbar">Holat: Ulangan | Sessiya: ANALITIK-07 | Oxirgi kirish: 12.03.2007 09:41</div>
+  <div class="footer">© 2005–2007 RAMM — Ichki foydalanish uchun. Powered by ArchiveWeb 1.4</div>
+</div></body></html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bulut Darvozasi &mdash; Media Gateway</title>
+<style>
+/* Bulut Darvozasi — dark ops/gateway dashboard (distinct, low-color) */
+:root{
+  --bg:#0d1117;--panel:#161b22;--panel2:#1b222b;--line:#272e38;
+  --ink:#cbd2da;--muted:#79828d;--accent:#3aa392;--accent-ink:#5fc9b6;--warn:#c98a3a;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;color:var(--ink);background:var(--bg);line-height:1.55}
+a{color:var(--accent-ink);text-decoration:none}a:hover{text-decoration:underline}
+.page{max-width:1000px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
+.masthead{display:flex;align-items:center;gap:12px;padding:14px 24px;border-bottom:1px solid var(--line);position:relative}
+.masthead .logo{width:26px;height:20px;border-radius:5px;background:var(--accent);position:relative}
+.masthead .logo:after{content:"";position:absolute;inset:5px 4px;background:var(--bg);border-radius:3px}
+.masthead .wordmark{font-size:15px;font-weight:600}
+.masthead .sub{font-size:11px;color:var(--muted)}
+.masthead .toplinks{position:absolute;right:24px;top:16px;font-size:12px;color:var(--muted)}
+.masthead .toplinks a{color:var(--muted)}
+.menubar{display:flex;gap:2px;padding:0 24px;border-bottom:1px solid var(--line);background:var(--panel)}
+.menubar a{color:var(--muted);font-size:12.5px;padding:11px 12px;border-bottom:2px solid transparent}
+.menubar a:hover{color:var(--ink);text-decoration:none;border-bottom-color:var(--accent)}
+.menubar a.on{color:var(--ink);border-bottom-color:var(--accent)}
+.breadcrumb{padding:8px 24px;font-size:11.5px;color:var(--muted);font-family:var(--mono)}
+.content{flex:1;padding:22px 24px;display:grid;grid-template-columns:1fr 300px;gap:18px}
+.col-main{min-width:0}
+h1{font-size:20px;font-weight:600;margin-bottom:12px}
+h2{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin-bottom:16px}
+.intro{color:var(--muted);font-size:13px}
+.field-row{display:grid;grid-template-columns:90px 1fr;gap:10px;align-items:center;margin:10px 0}
+label{font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted)}
+label.block{display:block;margin:12px 0 5px}
+input,select,textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:6px;color:var(--ink);padding:9px 11px;font:inherit}
+textarea{font-family:var(--mono);font-size:12.5px;min-height:80px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent)}
+.btnrow{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+button{background:var(--accent);color:#04120f;border:0;border-radius:6px;padding:9px 16px;font:inherit;font-weight:600;cursor:pointer}
+button.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+button:hover{filter:brightness(1.08)}
+.helper{font-size:11.5px;color:var(--muted);margin-top:10px}
+.readout{font-family:var(--mono);color:var(--accent-ink)}
+.result .row{display:flex;gap:10px;align-items:center;margin-bottom:8px;font-size:12px}
+.badge{font-family:var(--mono);font-size:11px;background:var(--panel2);border:1px solid var(--line);border-radius:5px;padding:2px 8px}
+pre{background:#0a0d12;border:1px solid var(--line);border-radius:8px;padding:14px;font-family:var(--mono);font-size:12px;overflow:auto;max-height:360px;white-space:pre-wrap;word-break:break-word;color:#c4ccd4}
+.svcbox .stat{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line);font-size:12px}
+.svcbox .stat b{color:var(--muted);font-weight:500}
+.svcbox .stat .dot{color:var(--accent-ink)}
+.svcbox .note{margin-top:12px;font-size:11.5px;color:var(--muted);font-family:var(--mono);line-height:1.5}
+table.params{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}
+table.params th{text-align:left;color:var(--muted);font-size:11px;text-transform:uppercase;padding:8px 10px;border-bottom:1px solid var(--line)}
+table.params td{padding:8px 10px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12.5px}
+.statusbar{padding:8px 24px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);font-family:var(--mono)}
+.footer{padding:14px 24px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);text-align:center}
+@media(max-width:820px){.content{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="masthead">
+    <span class="logo"></span>
+    <div><div class="wordmark">Bulut Darvozasi</div><div class="sub">Media gateway · havolalarni oldindan ko'rish</div></div>
+    <span class="toplinks"><a href="#">Yordam</a> · <a href="#">Chiqish</a></span>
+  </div>
+  <div class="menubar"><a class="on" href="index.html">Konsol</a><a href="api.html">API qo'llanma</a><a href="#">Holat</a><a href="#">Jurnal</a><a href="#">Sozlamalar</a></div>
+  <div class="breadcrumb">bosh / media-gateway / konsol</div>
+
+  <div class="content">
+    <div class="col-main">
+      <div class="panel intro">URL yuboring — darvoza uni server tomonda ochib, javob mazmunining ko'rinishini qaytaradi. Ishga tushirishdan oldin chiquvchi havolalar va webhook'larni tekshirish uchun qulay.</div>
+
+      <div class="panel">
+        <h2>Havolani tekshirish</h2>
+        <div class="field-row"><label for="url-input">URL</label><input id="url-input" type="text" placeholder="https://example.com/"></div>
+        <div class="field-row"><label for="method-input">Metod</label>
+          <select id="method-input"><option>GET</option><option>POST</option><option>PUT</option><option>HEAD</option></select>
+        </div>
+        <label class="block" for="headers-input">Sarlavhalar (har qatorda bittadan, "Nom: qiymat")</label>
+        <textarea id="headers-input"></textarea>
+        <div class="btnrow">
+          <button id="btn-v1">Tekshirish</button>
+          <button id="btn-v2" class="ghost">Tekshirish (v2, qattiqlashtirilgan)</button>
+        </div>
+        <div class="helper">v2 eski gopher:// oldindan ko'rishni ham qo'llab-quvvatlaydi.</div>
+      </div>
+
+      <div class="panel result">
+        <h2>Natija</h2>
+        <div class="row">Holat (status): <span id="status-out" class="badge readout">—</span></div>
+        <pre id="body-out">Natija bu yerda ko'rsatiladi.</pre>
+      </div>
+    </div>
+
+    <aside class="col-main">
+      <div class="panel svcbox">
+        <h2>Xizmat holati</h2>
+        <div class="stat"><b>Xizmat</b><span>media-gateway-fetcher</span></div>
+        <div class="stat"><b>Holat</b><span class="dot">● sog'lom</span></div>
+        <div class="stat"><b>Region</b><span>local-1</span></div>
+        <div class="note">Ichki holat sahifasi loopback (127.0.0.1:9000) ga bog'langan — faqat darvozaning o'zi ko'radi.</div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="statusbar" id="statusbar">Tayyor. | Oxirgi kirish: 19.08.2026 09:41 · Region: local-1 · Instance role: gateway-fetch-role</div>
+  <div class="footer">© 2005–2007 O'ZBULUT Aloqa Tizimlari · Powered by GatewayFetch Engine</div>
+</div>
+
+<script>
+(function(){
+  var urlI=document.getElementById('url-input'), methI=document.getElementById('method-input'),
+      hdrI=document.getElementById('headers-input'), statusOut=document.getElementById('status-out'),
+      bodyOut=document.getElementById('body-out'), bar=document.getElementById('statusbar');
+  function parseHeaders(text){
+    var obj={};
+    text.split('\n').forEach(function(line){
+      if(line.trim()==='') return;
+      var i=line.indexOf(':'); if(i<0) return;
+      obj[line.slice(0,i).trim()] = line.slice(i+1).trim();
+    });
+    return obj;
+  }
+  function send(endpoint){
+    var payload={ url: urlI.value, method: methI.value, headers: parseHeaders(hdrI.value) };
+    bar.textContent='So’rov yuborilmoqda...'; bodyOut.textContent='Yuklanmoqda...'; statusOut.textContent='—';
+    fetch(endpoint, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)})
+      .then(function(r){ return r.json(); })
+      .then(function(res){
+        if(res.error!==undefined && res.error!==null){ bodyOut.textContent='Xatolik: '+res.error; statusOut.textContent=(res.status!==undefined?res.status:'—'); bar.textContent='Xatolik.'; return; }
+        statusOut.textContent = (res.status!==undefined?res.status:'—');
+        bodyOut.textContent = (res.body!==undefined?res.body:'');
+        bar.textContent='Tayyor.';
+      })
+      .catch(function(e){ bodyOut.textContent='Xatolik: '+e; bar.textContent='Xatolik.'; });
+  }
+  document.getElementById('btn-v1').addEventListener('click', function(){ send('/api/preview'); });
+  document.getElementById('btn-v2').addEventListener('click', function(){ send('/api/preview/v2'); });
+})();
+</script>
+</body>
+</html>

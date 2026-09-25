@@ -1,0 +1,12 @@
+--CATALOG-START--
+# KIOSK 7 public catalog export (v1)
+id,section,title,shelf
+1,reference,Encyclopedia of the Silk Road,R-04
+2,reference,Atlas of Central Asia,R-05
+3,fiction,The Blue Minaret,F-11
+4,fiction,Nights in Samarqand,F-12
+5,science,Foundations of Cryptography,S-07
+6,science,Filesystems and Forensics,S-08
+7,history,Registan Chronicles,H-02
+8,history,The Fergana Papers,H-03
+--CATALOG-END--

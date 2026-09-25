@@ -1,0 +1,25 @@
+#!/bin/bash
+# vpn-connect [config.ovpn] — CyberKent VPN'ga ulanadi (default ~/cyberkent.ovpn)
+OVPN="${1:-$HOME/cyberkent.ovpn}"
+if [ ! -f "$OVPN" ]; then
+  echo "❌ Config topilmadi: $OVPN"
+  echo "   code-server Explorer'ga .ovpn faylni tashlang, keyin: vpn-connect ~/<fayl>.ovpn"
+  exit 1
+fi
+sudo pkill -f 'openvpn --config' 2>/dev/null; sleep 1
+echo "🔌 Ulanmoqda: $OVPN"
+sudo openvpn --config "$OVPN" --daemon --log "$HOME/vpn.log" --writepid "$HOME/vpn.pid"
+for i in $(seq 1 15); do
+  sleep 1
+  if grep -q "Initialization Sequence Completed" "$HOME/vpn.log" 2>/dev/null; then break; fi
+done
+echo "----- vpn.log (oxiri) -----"
+tail -6 "$HOME/vpn.log"
+IP=$(ip -4 addr show tun0 2>/dev/null | grep -oP 'inet \K[0-9.]+')
+if [ -n "$IP" ]; then
+  echo "======================================"
+  echo " ✅ ULANDI! ATTACK IP (LHOST) = $IP"
+  echo "======================================"
+else
+  echo "⚠ tun0 hali yo'q — vpn.log'ni tekshiring (vpn-log)"
+fi

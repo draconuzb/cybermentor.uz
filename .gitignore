@@ -1,0 +1,32 @@
+# Secrets — never commit
+*.pem
+*.key
+*.ovpn
+*.crt
+.netrc
+.git-credentials
+.ssh/
+.fb_pass
+.panel/
+filebrowser.db
+config/code-server/
+**/config.yaml
+
+# Runtime / logs
+*.log
+*.ctl
+*.sock
+vpn.log
+.bash_history
+
+# Junk / caches / installed tooling
+__pycache__/
+*.pyc
+.cache/
+.venv/
+venv/
+wordlists/
+tools/
+.local/
+ctf/resources/
+ctf/serve/

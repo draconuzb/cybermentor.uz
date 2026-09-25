@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="QorakolFleet" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata><name>convoy leg 1 - checkpoints</name></metadata>
+  <wpt lat="39.500067" lon="63.450000"><name>CP000</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.501084" lon="63.451037"><name>CP001</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.502070" lon="63.453074"><name>CP002</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.503123" lon="63.454111"><name>CP003</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.504098" lon="63.455148"><name>CP004</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.505097" lon="63.457185"><name>CP005</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.506099" lon="63.458222"><name>CP006</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.507095" lon="63.459259"><name>CP007</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.508048" lon="63.460296"><name>CP008</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.509097" lon="63.462333"><name>CP009</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.510102" lon="63.463370"><name>CP010</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.511049" lon="63.464407"><name>CP011</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.512053" lon="63.466444"><name>CP012</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.513053" lon="63.467481"><name>CP013</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.514054" lon="63.468018"><name>CP014</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.515101" lon="63.470055"><name>CP015</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.516102" lon="63.471092"><name>CP016</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.517055" lon="63.472129"><name>CP017</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.518100" lon="63.473166"><name>CP018</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.519056" lon="63.475203"><name>CP019</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.520049" lon="63.476240"><name>CP020</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.521056" lon="63.477277"><name>CP021</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.522049" lon="63.479314"><name>CP022</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.523051" lon="63.480351"><name>CP023</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.524050" lon="63.481388"><name>CP024</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.525056" lon="63.483425"><name>CP025</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.526054" lon="63.484462"><name>CP026</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.527049" lon="63.485499"><name>CP027</name><sym>Waypoint</sym></wpt>
+  <wpt lat="39.528125" lon="63.486036"><name>CP028</name><sym>Waypoint</sym></wpt>
+  <trk><name>approach</name><trkseg>
+    <trkpt lat="39.520000" lon="63.440000"><ele>230</ele></trkpt>
+    <trkpt lat="39.520400" lon="63.440600"><ele>233</ele></trkpt>
+    <trkpt lat="39.520800" lon="63.441200"><ele>236</ele></trkpt>
+    <trkpt lat="39.521200" lon="63.441800"><ele>239</ele></trkpt>
+    <trkpt lat="39.521600" lon="63.442400"><ele>242</ele></trkpt>
+    <trkpt lat="39.522000" lon="63.443000"><ele>245</ele></trkpt>
+  </trkseg></trk>
+</gpx>

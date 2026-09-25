@@ -1,0 +1,9 @@
+[Unit]
+Description=filebrowser web file manager
+After=network.target
+[Service]
+User=ubuntu
+ExecStart=/usr/local/bin/filebrowser --database /home/ubuntu/filebrowser.db
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target

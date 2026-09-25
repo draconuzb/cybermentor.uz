@@ -1,0 +1,19 @@
+#!/bin/bash
+# recon <target> — avtomatik razvedka (nmap + web enum)
+T="${1:?usage: recon <target-ip>}"; D="$HOME/ctf/targets/$T"; mkdir -p "$D"
+echo "[*] Recon -> $D"
+echo "[1/3] Nmap tez (top-1000)..."; nmap -Pn -T4 --top-ports 1000 -oN "$D/nmap-quick.txt" "$T" >/dev/null; grep -E 'open' "$D/nmap-quick.txt" | grep -v Warning
+echo "[2/3] Nmap to'liq (-p- -sVC) fonda..."; nmap -Pn -sVC -p- -T4 -oN "$D/nmap-full.txt" "$T" >/dev/null 2>&1 &
+NPID=$!
+echo "[3/3] Web enum (ochiq http portlar)..."
+for p in $(grep -oE '^[0-9]+/tcp +open' "$D/nmap-quick.txt" | grep -oE '^[0-9]+'); do
+  sch=http; { [ "$p" = 443 ] || [ "$p" = 8443 ]; } && sch=https
+  if grep -E "^$p/tcp.*http" "$D/nmap-quick.txt" >/dev/null 2>&1 || [ "$p" = 80 ] || [ "$p" = 8080 ] || [ "$p" = 8000 ] || [ "$sch" = https ]; then
+    echo "   [web] $sch://$T:$p"
+    whatweb -q "$sch://$T:$p" > "$D/whatweb-$p.txt" 2>/dev/null
+    gobuster dir -q -k -t 40 -u "$sch://$T:$p" -w ~/wordlists/common.txt -o "$D/gobuster-$p.txt" 2>/dev/null &
+  fi
+done
+wait
+echo "[✓] Tugadi. Natijalar:"; ls -1 "$D" | sed 's/^/   /'
+echo "   To'liq nmap: cat $D/nmap-full.txt"

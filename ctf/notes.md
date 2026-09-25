@@ -1,0 +1,1 @@
+hozirga nechi bo'ldi

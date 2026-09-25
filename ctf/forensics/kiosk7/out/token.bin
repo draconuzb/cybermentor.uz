@@ -1,0 +1,3 @@
+kiosk7 secure download token
+FLAG2=CTF{rce_cf9d96f34c31f44c386f}
+note: remaining fragments live in the log-file slack; order = trailing manifest index

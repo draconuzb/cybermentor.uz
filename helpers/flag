@@ -1,0 +1,5 @@
+#!/bin/bash
+# flag <matn> — topilgan flag/credential'ni yozib qo'yadi
+[ -z "$*" ] && { echo "usage: flag <flag yoki eslatma>"; cat ~/ctf/flags.txt 2>/dev/null; exit 0; }
+echo "$(date '+%m-%d %H:%M') | $*" >> ~/ctf/flags.txt
+echo "✓ saqlandi -> ~/ctf/flags.txt"; tail -8 ~/ctf/flags.txt

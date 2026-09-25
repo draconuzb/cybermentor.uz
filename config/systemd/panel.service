@@ -1,0 +1,10 @@
+[Unit]
+Description=CyberKent Red Team Panel
+After=network.target
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/panel
+ExecStart=/usr/bin/gunicorn -w 2 -b 127.0.0.1:8090 app:app
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target

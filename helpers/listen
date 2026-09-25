@@ -1,0 +1,8 @@
+#!/bin/bash
+LPORT="${1:-4444}"
+if command -v pwncat-cs >/dev/null 2>&1; then
+  echo "[pwncat] :$LPORT kutmoqda (auto-stabil shell, upload/download bor)..."
+  pwncat-cs -lp "$LPORT"
+else
+  echo "[nc] :$LPORT kutmoqda..."; rlwrap nc -lvnp "$LPORT" 2>/dev/null || nc -lvnp "$LPORT"
+fi

@@ -1,0 +1,31 @@
+{
+  "generator": "lcg",
+  "note": "Consecutive full outputs of a linear congruential generator s_{n+1} = (a*s_n + c) mod m. Parameters a, c, m are NOT given. flag_ct_hex = flag XOR keystream, where the keystream is the concatenation of the generator's next outputs AFTER the logged run (each output serialised as 6 bytes, big-endian).",
+  "outputs": [
+    157342448715735,
+    124166774921461,
+    114423051195224,
+    165041615125811,
+    78981470981918,
+    266676427274026,
+    6939176303271,
+    58723692488324,
+    109513298906952,
+    66694149581816,
+    244018068221407,
+    13439613589670,
+    176929270095538,
+    228147429077030,
+    69176615580985,
+    197125664011974,
+    69535525967647,
+    149453529903639,
+    70889470528364,
+    198354407387956,
+    148264846656402,
+    218907092827405,
+    239646718177611,
+    64567353591353
+  ],
+  "flag_ct_hex": "e21d86cb3b2544067f464f17223ca972d7a8457e495f4cb319adfb131f"
+}

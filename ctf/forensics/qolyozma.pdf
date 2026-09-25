@@ -1,0 +1,100 @@
+%PDF-1.5
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R /F2 7 0 R >> >> /Contents 8 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /FirstChar 1 /LastChar 29 /Widths [600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600] /Encoding 5 0 R /ToUnicode 6 0 R >>
+endobj
+5 0 obj
+<< /Type /Encoding /Differences [1 /C 2 /T 3 /F 4 /braceleft 5 /b 6 /a 7 /c 8 /underscore 9 /nine 10 /eight 11 /d 12 /three 13 /one 14 /b 15 /d 16 /f 17 /three 18 /seven 19 /one 20 /e 21 /nine 22 /five 23 /three 24 /e 25 /eight 26 /six 27 /seven 28 /f 29 /braceright] >>
+endobj
+6 0 obj
+<< /Length 669 >>
+stream
+/CIDInit /ProcSet findresource begin
+12 dict begin
+begincmap
+/CIDSystemInfo << /Registry (Adobe) /Ordering (UCS) /Supplement 0 >> def
+/CMapName /Adobe-Identity-UCS def
+/CMapType 2 def
+1 begincodespacerange
+<01> <FF>
+endcodespacerange
+29 beginbfchar
+<01> <0041>
+<02> <0052>
+<03> <0058>
+<04> <0049>
+<05> <0056>
+<06> <004D>
+<07> <0041>
+<08> <0058>
+<09> <0046>
+<0A> <0049>
+<0B> <0059>
+<0C> <004E>
+<0D> <0055>
+<0E> <0053>
+<0F> <0058>
+<10> <0041>
+<11> <0048>
+<12> <0055>
+<13> <004A>
+<14> <004A>
+<15> <0041>
+<16> <0054>
+<17> <004E>
+<18> <0041>
+<19> <004D>
+<1A> <0055>
+<1B> <004E>
+<1C> <0041>
+<1D> <0056>
+endbfchar
+endcmap
+CMapName currentdict /CMap defineresource pop
+end
+end
+
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+8 0 obj
+<< /Length 163 >>
+stream
+BT
+/F2 15 Tf
+72 780 Td
+(FARGONA VILOYAT DAVLAT ARXIVI - NAMUNAVIY HUJJAT) Tj
+0 -46 Td
+/F1 30 Tf
+<0102030405060708090A0B0C0D0E0F101112131415161718191A1B1C1D> Tj
+ET
+
+endstream
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000121 00000 n 
+0000000257 00000 n 
+0000000512 00000 n 
+0000000798 00000 n 
+0000001518 00000 n 
+0000001588 00000 n 
+trailer
+<< /Size 9 /Root 1 0 R >>
+startxref
+1802
+%%EOF

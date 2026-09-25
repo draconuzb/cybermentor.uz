@@ -1,0 +1,3 @@
+K7SLKF
+kiosk7 session log segment 2
+events=19 ok
